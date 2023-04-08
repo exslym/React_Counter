@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [player1Counter, setPlayer1Counter] = useState(10);
+	const [player2Counter, setPlayer2Counter] = useState(10);
+
+	return (
+		<div className='App'>
+			<div className='container'>
+				<div className='flexbox'>
+					<div>
+						<div>Player 1</div>
+						<div>Score: {player1Counter}</div>
+						<button
+							onClick={() => {
+								setPlayer1Counter(player1Counter + 1);
+							}}
+						>
+							+
+						</button>
+					</div>
+					<div>
+						<div>Player 2</div>
+						<div>Score: {player2Counter}</div>
+						<button
+							onClick={() => {
+								setPlayer2Counter(player2Counter + 1);
+							}}
+						>
+							+
+						</button>
+					</div>
+				</div>
+				<button
+					onClick={() => {
+						setPlayer1Counter(player1Counter - 1);
+						setPlayer2Counter(player2Counter - 1);
+					}}
+					className='buttonAll'
+				>
+					-
+				</button>
+			</div>
+		</div>
+	);
 }
 
 export default App;
